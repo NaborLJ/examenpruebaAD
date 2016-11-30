@@ -16,16 +16,14 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 public class Metodos {
-
-    String code = "p1";
-    String code2 = "p2";
-    String code3 = "p3";
+    ResultSet rs;
+    String codPro = "";
+    String codCli = "";
+    String data;
+    String cantidad = "";
     int total;
     int precio;
     int stock;
-    ResultSet rs;
-    ResultSet rs2;
-    ResultSet rs3;
 
     public void Leer() throws XMLStreamException, FileNotFoundException, SQLException {
         String fichero = "/home/oracle/NetBeansProjects/exa141215/pedidos.xml";
@@ -44,8 +42,8 @@ public class Metodos {
                         System.out.print(codpro);
                     }
                     if ("Cantidade".equals(reader.getLocalName())) {
-                        cantidade = Integer.parseInt(reader.getElementText());
-                        System.out.println(cantidade);
+                        cantidad = (reader.getElementText());
+                        System.out.println(cantidad);
                     }
                     if ("Data".equals(reader.getLocalName())) {
                         data = reader.getElementText();
@@ -66,5 +64,4 @@ public class Metodos {
 
     }
 
-    
 }
