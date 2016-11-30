@@ -16,24 +16,23 @@ import javax.xml.stream.XMLStreamReader;
 
 public class Conexion {
 
-    public Connection conexion=null;
+    public static Connection conn=null;
     
      public void getConexion() throws SQLException  {
+        
+        String driver = "jdbc:oracle:thin:";
+        String host = "localhost.localdomain";
+        String porto = "1521";
+        String sid = "orcl";
         String usuario = "hr";
         String password = "hr";
-        String host = "localhost"; // tambien puede ser una ip como "192.168.1.14"
-        String puerto = "1521";
-        String sid = "orcl";
-        String ulrjdbc = "jdbc:oracle:thin:" + usuario + "/" + password + "@" + host + ":" + puerto + ":" + sid;
-        
-           
-            conexion =DriverManager.getConnection(ulrjdbc);
-            
+        String url = driver + usuario + "/" + password + "@" + host + ":" + porto + ":" + sid;
+        conn = DriverManager.getConnection(url);
         }
 
      
      public void closeConexion() throws SQLException {
-      conexion.close();
+      conn.close();
       }
           
     }

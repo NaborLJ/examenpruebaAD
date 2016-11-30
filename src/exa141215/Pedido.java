@@ -9,11 +9,11 @@ import javax.xml.stream.XMLStreamReader;
 
 public class Pedido {
 
-    private String codcli;
-    private String codpro;
+    public static String codcli;
+    public static String codpro;
 
-    private int cantidade;
-    private String data;
+    public static int cantidade;
+    public static String data;
 
     public Pedido() {
         this("", "", 0, "");
@@ -70,31 +70,7 @@ public class Pedido {
                 + "Data:       " + data + "\n";
     }
 
-    public void Leer() throws XMLStreamException, FileNotFoundException {
-        String fichero = "/home/oracle/NetBeansProjects/exa141215/pedidos.xml";
-        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-        XMLStreamReader reader = inputFactory.createXMLStreamReader(new FileReader(fichero));
-
-        while (reader.hasNext()) {
-            int eventType = reader.next();
-
-            switch (eventType) {
-                case 1:
-                    if ("Pedido".equals(reader.getLocalName())) {
-                        codcli=reader.getAttributeValue(0);
-                        codpro=reader.getAttributeValue(1);
-                    }
-                    if ("Cantidade".equals(reader.getLocalName())) {
-                        cantidade=Integer.parseInt(reader.getElementText());
-                    }
-                    if ("Data".equals(reader.getLocalName())) {
-                        data=reader.getElementText();
-                    }
-                    break;
-            }
-
-        }
-        reader.close();
+    
     }
 
-}
+

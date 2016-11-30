@@ -11,9 +11,12 @@ public class Exa141215 {
     public static void main(String[] args) throws SQLException, XMLStreamException, FileNotFoundException {
         Conexion con = new Conexion();
         Pedido aux = new Pedido();
+        Metodos met = new Metodos();
         
-        aux.Leer();
-        aux.toString();
+        con.getConexion();
+        
+        con.closeConexion();
+       
     }
     
 }
