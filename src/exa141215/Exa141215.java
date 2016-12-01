@@ -14,7 +14,7 @@ public class Exa141215 {
         Metodos met = new Metodos();
         
         con.getConexion();
-        
+        met.Leer();
         con.closeConexion();
        
     }

@@ -31,7 +31,7 @@ public class Conexion {
         }
 
      
-     public void closeConexion() throws SQLException {
+     public static void closeConexion() throws SQLException {
       conn.close();
       }
           
